@@ -98,10 +98,10 @@ public class SetupThread extends Thread {
 
       // test discovery credentials
 
-      String userName = System.getenv("DISCOVERY_USERNAME");
-      String password = System.getenv("DISCOVERY_PASSWORD");
-      String collectionId = System.getenv("DISCOVERY_COLLECTION_ID");
-      String environmentId = System.getenv("DISCOVERY_ENVIRONMENT_ID");
+      String userName = "b76330c5-f630-487c-89cb-2236a9f3ff85";
+      String password = "FI4sTSnmtEEA";
+      String collectionId = "3fbcf31b-c7c5-4bcd-9a09-4a846fb469d1";
+      String environmentId = "5974995c-c594-4a95-895e-c87ceceed542";
 
       if ((userName == null) || (password == null) || (collectionId == null) || (environmentId == null)) {
         throw new IllegalArgumentException(Messages.getString("SetupThread.DISC_INVALID_CREDS"));
@@ -126,9 +126,9 @@ public class SetupThread extends Thread {
       updateConfigObject("2", Constants.NOT_READY, Messages.getString("SetupThread.EMPTY"),
           Messages.getString("SetupThread.GETTING_CREDENTIALS"));
 
-      userName = System.getenv("CONVERSATION_USERNAME");
-      password = System.getenv("CONVERSATION_PASSWORD");
-      String workspaceId = System.getenv("WORKSPACE_ID");
+      userName = "132dbb28-9a15-4c40-9e14-c870023d9e93";
+      password = "pCHLP8LWdt0a";
+      String workspaceId = "dd899c57-d8eb-40e8-90e9-50ecd70d211b";
 
       if ((userName == null) || (password == null) || (workspaceId == null)) {
         throw new IllegalArgumentException(Messages.getString("SetupThread.CONV_INVALID_CREDS"));
