@@ -46,7 +46,7 @@ public class SetupResource {
   @GET
   @Produces(MediaType.APPLICATION_JSON)
   public Response getConfig() {
-    String workspaceId = "dd899c57-d8eb-40e8-90e9-50ecd70d211b";
+    String workspaceId = System.getenv(Constants.WORKSPACE_ID);
     logger.debug(MessageFormat.format(Messages.getString("SetupResource.WORKSPACE_ID_IS"), workspaceId));
 
     JsonObject config = new JsonObject();
