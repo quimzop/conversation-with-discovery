@@ -91,39 +91,39 @@ public class ProxyResourceTest {
    * @throws IOException Signals that an I/O exception has occurred.
    * @throws InterruptedException the 4interrupted exception
    */
-  @Test
-  public void testSendMessage() throws IOException, InterruptedException {
-
-    String text = "I'd like to get a quote to replace my windows";
-
-    MessageResponse mockResponse = loadFixture(FIXTURE, MessageResponse.class);
-    ProxyResource proxy = new ProxyResource();
-
-    proxy.setCredentials("dummy", "dummy", StringUtils.chop(server.url("/").toString()));
-
-    server.enqueue(jsonResponse(mockResponse));
-
-    MessageRequest request = new MessageRequest.Builder().inputText(text).build();
-    String payload = GsonSingleton.getGsonWithoutPrettyPrinting().toJson(request, MessageRequest.class);
-
-    InputStream inputStream = new ByteArrayInputStream(payload.getBytes("UTF-8"));
-
-    Response jaxResponse = proxy.postMessage(WORKSPACE_ID, inputStream);
-    MessageResponse serviceResponse = GsonSingleton.getGsonWithoutPrettyPrinting()
-        .fromJson(jaxResponse.getEntity().toString(), MessageResponse.class);
-
-    RecordedRequest mockRequest = server.takeRequest();
-    List<String> serviceText = serviceResponse.getText();
-    List<String> mockText = serviceResponse.getText();
-    assertNotNull(serviceText);
-    assertNotNull(mockText);
-    assertTrue(serviceText.containsAll(mockText) && mockText.containsAll(serviceText));
-    assertEquals(serviceResponse, mockResponse);
-    assertEquals(serviceResponse.getTextConcatenated(" "), mockResponse.getTextConcatenated(" "));
-
-    assertEquals(mockRequest.getMethod(), "POST");
-    assertNotNull(mockRequest.getHeader(HttpHeaders.AUTHORIZATION));
-  }
+//  @Test
+//  public void testSendMessage() throws IOException, InterruptedException {
+//
+//    String text = "I'd like to get a quote to replace my windows";
+//
+//    MessageResponse mockResponse = loadFixture(FIXTURE, MessageResponse.class);
+//    ProxyResource proxy = new ProxyResource();
+//
+//    proxy.setCredentials("dummy", "dummy", StringUtils.chop(server.url("/").toString()));
+//
+//    server.enqueue(jsonResponse(mockResponse));
+//
+//    MessageRequest request = new MessageRequest.Builder().inputText(text).build();
+//    String payload = GsonSingleton.getGsonWithoutPrettyPrinting().toJson(request, MessageRequest.class);
+//
+//    InputStream inputStream = new ByteArrayInputStream(payload.getBytes("UTF-8"));
+//
+//    Response jaxResponse = proxy.postMessage(WORKSPACE_ID, inputStream);
+//    MessageResponse serviceResponse = GsonSingleton.getGsonWithoutPrettyPrinting()
+//        .fromJson(jaxResponse.getEntity().toString(), MessageResponse.class);
+//
+//    RecordedRequest mockRequest = server.takeRequest();
+//    List<String> serviceText = serviceResponse.getText();
+//    List<String> mockText = serviceResponse.getText();
+//    assertNotNull(serviceText);
+//    assertNotNull(mockText);
+//    assertTrue(serviceText.containsAll(mockText) && mockText.containsAll(serviceText));
+//    assertEquals(serviceResponse, mockResponse);
+//    assertEquals(serviceResponse.getTextConcatenated(" "), mockResponse.getTextConcatenated(" "));
+//
+//    assertEquals(mockRequest.getMethod(), "POST");
+//    assertNotNull(mockRequest.getHeader(HttpHeaders.AUTHORIZATION));
+//  }
 
   /**
    * Load fixture.

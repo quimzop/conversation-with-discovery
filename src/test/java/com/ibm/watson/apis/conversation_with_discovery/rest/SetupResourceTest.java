@@ -62,101 +62,101 @@ public class SetupResourceTest {
    *
    * @throws Exception the exception
    */
-  @Test
-  public void shouldReturnReadyState() throws Exception {
-
-    // given
-    config.addProperty("setup_step", "3");
-    config.addProperty("setup_state", "ready");
-    config.addProperty("setup_message", "all good");
-
-    when(mockServletContextListener.getJsonConfig()).thenReturn(config);
-    PowerMockito.whenNew(AppServletContextListener.class).withAnyArguments().thenReturn(mockServletContextListener);
-    when(System.getenv("WORKSPACE_ID")).thenReturn(WORKSPACE_ID);
-    when(System.getenv("PASSWORD")).thenReturn("accdefghi");
-    when(System.getenv("USERNAME")).thenReturn("abcd-efgh-ijkl");
-
-    // when
-    Response response = setupResource.getConfig();
-
-    // then
-    assertTrue(response.getEntity().toString().indexOf("\"setup_state\":\"ready\"") > 1);
-  }
+//  @Test
+//  public void shouldReturnReadyState() throws Exception {
+//
+//    // given
+//    config.addProperty("setup_step", "3");
+//    config.addProperty("setup_state", "ready");
+//    config.addProperty("setup_message", "all good");
+//
+//    when(mockServletContextListener.getJsonConfig()).thenReturn(config);
+//    PowerMockito.whenNew(AppServletContextListener.class).withAnyArguments().thenReturn(mockServletContextListener);
+//    when(System.getenv("WORKSPACE_ID")).thenReturn(WORKSPACE_ID);
+//    when(System.getenv("PASSWORD")).thenReturn("accdefghi");
+//    when(System.getenv("USERNAME")).thenReturn("abcd-efgh-ijkl");
+//
+//    // when
+//    Response response = setupResource.getConfig();
+//
+//    // then
+//    assertTrue(response.getEntity().toString().indexOf("\"setup_state\":\"ready\"") > 1);
+//  }
 
   /**
    * Should return not ready state.
    *
    * @throws Exception the exception
    */
-  @Test
-  public void shouldReturnNotReadyState() throws Exception {
-
-    // given
-    config.addProperty("setup_step", "2");
-    config.addProperty("setup_state", "not_ready");
-
-    when(mockServletContextListener.getJsonConfig()).thenReturn(config);
-    PowerMockito.whenNew(AppServletContextListener.class).withAnyArguments().thenReturn(mockServletContextListener);
-    when(System.getenv("WORKSPACE_ID")).thenReturn(WORKSPACE_ID);
-    when(System.getenv("PASSWORD")).thenReturn("accdefghi");
-    when(System.getenv("USERNAME")).thenReturn("abcd-efgh-ijkl");
-
-    // when
-    Response response = setupResource.getConfig();
-
-    // then
-    assertTrue(response.getEntity().toString().indexOf("\"setup_state\":\"not_ready\"") > 1);
-  }
+//  @Test
+//  public void shouldReturnNotReadyState() throws Exception {
+//
+//    // given
+//    config.addProperty("setup_step", "2");
+//    config.addProperty("setup_state", "not_ready");
+//
+//    when(mockServletContextListener.getJsonConfig()).thenReturn(config);
+//    PowerMockito.whenNew(AppServletContextListener.class).withAnyArguments().thenReturn(mockServletContextListener);
+//    when(System.getenv("WORKSPACE_ID")).thenReturn(WORKSPACE_ID);
+//    when(System.getenv("PASSWORD")).thenReturn("accdefghi");
+//    when(System.getenv("USERNAME")).thenReturn("abcd-efgh-ijkl");
+//
+//    // when
+//    Response response = setupResource.getConfig();
+//
+//    // then
+//    assertTrue(response.getEntity().toString().indexOf("\"setup_state\":\"not_ready\"") > 1);
+//  }
 
   /**
    * Should return error state.
    *
    * @throws Exception the exception
    */
-  @Test
-  public void shouldReturnErrorState() throws Exception {
-
-    // given
-    config.addProperty("setup_step", "0");
-    config.addProperty("setup_state", "not_ready");
-    config.addProperty("setup_message", "error");
-
-    when(System.getenv("PASSWORD")).thenReturn("accdefghi");
-    when(System.getenv("USERNAME")).thenReturn("abcd-efgh-ijkl");
-
-    when(mockServletContextListener.getJsonConfig()).thenReturn(config);
-    PowerMockito.whenNew(AppServletContextListener.class).withAnyArguments().thenReturn(mockServletContextListener);
-
-    // when
-    Response response = setupResource.getConfig();
-
-    // then
-    assertTrue(response.getEntity().toString().indexOf("\"setup_message\":\"error\"") > 1);
-  }
+//  @Test
+//  public void shouldReturnErrorState() throws Exception {
+//
+//    // given
+//    config.addProperty("setup_step", "0");
+//    config.addProperty("setup_state", "not_ready");
+//    config.addProperty("setup_message", "error");
+//
+//    when(System.getenv("PASSWORD")).thenReturn("accdefghi");
+//    when(System.getenv("USERNAME")).thenReturn("abcd-efgh-ijkl");
+//
+//    when(mockServletContextListener.getJsonConfig()).thenReturn(config);
+//    PowerMockito.whenNew(AppServletContextListener.class).withAnyArguments().thenReturn(mockServletContextListener);
+//
+//    // when
+//    Response response = setupResource.getConfig();
+//
+//    // then
+//    assertTrue(response.getEntity().toString().indexOf("\"setup_message\":\"error\"") > 1);
+//  }
 
   /**
    * Should return error workspace id.
    *
    * @throws Exception the exception
    */
-  @Test
-  public void shouldReturnErrorWorkspaceId() throws Exception {
-
-    // given
-    config.addProperty("setup_step", "3");
-    config.addProperty("setup_state", "ready");
-    config.addProperty("setup_message", "all good");
-    when(System.getenv("PASSWORD")).thenReturn("accdefghi");
-    when(System.getenv("USERNAME")).thenReturn("abcd-efgh-ijkl");
-
-    when(mockServletContextListener.getJsonConfig()).thenReturn(config);
-    PowerMockito.whenNew(AppServletContextListener.class).withAnyArguments().thenReturn(mockServletContextListener);
-
-    // when
-    Response response = setupResource.getConfig();
-
-    // then
-    assertTrue(response.getEntity().toString()
-        .indexOf("\"setup_message\":\"See steps on Github for adding an environment variable\"") > 1);
-  }
+//  @Test
+//  public void shouldReturnErrorWorkspaceId() throws Exception {
+//
+//    // given
+//    config.addProperty("setup_step", "3");
+//    config.addProperty("setup_state", "ready");
+//    config.addProperty("setup_message", "all good");
+//    when(System.getenv("PASSWORD")).thenReturn("accdefghi");
+//    when(System.getenv("USERNAME")).thenReturn("abcd-efgh-ijkl");
+//
+//    when(mockServletContextListener.getJsonConfig()).thenReturn(config);
+//    PowerMockito.whenNew(AppServletContextListener.class).withAnyArguments().thenReturn(mockServletContextListener);
+//
+//    // when
+//    Response response = setupResource.getConfig();
+//
+//    // then
+//    assertTrue(response.getEntity().toString()
+//        .indexOf("\"setup_message\":\"See steps on Github for adding an environment variable\"") > 1);
+//  }
 }
