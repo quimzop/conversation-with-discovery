@@ -1,6 +1,6 @@
 ---
 applications:
 - services:
-  - Discovery-v1
+  - Discovery-a1
   path: build/libs/conversation-with-discovery-0.1-SNAPSHOT.war
   memory: 512M
