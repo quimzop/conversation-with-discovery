@@ -88,9 +88,15 @@ public class DiscoveryClient {
 		}
         
         //    jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_TITLE).toString().replaceAll("\"", ""));
-        if (jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_BODY) != null) {
-          String body = jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_BODY).toString().replaceAll("\"",
-              "");
+        if (jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_BODY) != null || jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_TEXT) != null) {
+          String body;
+          
+          if(jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_BODY) != null){
+          	body = jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_BODY).toString().replaceAll("\"","");
+      	}else{
+      		body = jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_TEXT).toString().replaceAll("\\[n]""," ");
+      	}
+
 
           // This method limits the response text in this sample
           // app to two paragraphs.
