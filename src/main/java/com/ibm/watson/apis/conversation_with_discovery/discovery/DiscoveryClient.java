@@ -95,7 +95,7 @@ public class DiscoveryClient {
         	if (jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_BODY) != null){
           		body = jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_BODY).toString().replaceAll("\"","");
 	      	}else{
-	      		body = jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_TEXT).toString().replaceAll("\\[n]"," ");
+	      		body = jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_TEXT).toString().replaceAll("\"","");
 	      	}
 	      	
           // This method limits the response text in this sample
