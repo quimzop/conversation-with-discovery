@@ -30,6 +30,9 @@ public class Constants {
 
   /** The Constant DISCOVERY_FIELD_BODY. */
   public static final String DISCOVERY_FIELD_BODY = "contentHtml";
+  
+  /** The Constant DISCOVERY_FIELD_TEXT. */
+  public static final String DISCOVERY_FIELD_TEXT = "text";
 
   /** The Constant DISCOVERY_FIELD_CONFIDENCE. */
   public static final String DISCOVERY_FIELD_CONFIDENCE = "score";
