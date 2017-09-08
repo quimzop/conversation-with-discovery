@@ -78,7 +78,8 @@ public class DiscoveryClient {
         DocumentPayload documentPayload = new DocumentPayload();
 //        String id = jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_ID).toString().replaceAll("\"", "");
 //        documentPayload.setId(id);
-		//metadata-title
+
+// title or metadata-title
 		if(jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_TITLE)!=null){
 			documentPayload.setTitle(
 				jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_TITLE).toString().replaceAll("\"", ""));
@@ -91,13 +92,12 @@ public class DiscoveryClient {
         if (jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_BODY) != null || jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_TEXT) != null) {
           String body;
           
-          if(jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_BODY) != null){
-          	body = jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_BODY).toString().replaceAll("\"","");
-      	}else{
-      		body = jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_TEXT).toString().replaceAll("\\[n]""," ");
-      	}
-
-
+        	if (jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_BODY) != null){
+          		body = jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_BODY).toString().replaceAll("\"","");
+	      	}else{
+	      		body = jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_TEXT).toString().replaceAll("\\[n]"," ");
+	      	}
+	      	
           // This method limits the response text in this sample
           // app to two paragraphs.
           String bodyTwoPara = limitParagraph(body);
