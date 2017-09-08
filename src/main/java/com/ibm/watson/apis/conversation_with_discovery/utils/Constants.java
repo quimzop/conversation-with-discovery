@@ -32,7 +32,7 @@ public class Constants {
   public static final String DISCOVERY_FIELD_BODY = "contentHtml";
   
   /** The Constant DISCOVERY_FIELD_TEXT. */
-  public static final String DISCOVERY_FIELD_TEXT = "text";
+  public static final String DISCOVERY_FIELD_TEXT = "contentHtml";
 
   /** The Constant DISCOVERY_FIELD_CONFIDENCE. */
   public static final String DISCOVERY_FIELD_CONFIDENCE = "score";
