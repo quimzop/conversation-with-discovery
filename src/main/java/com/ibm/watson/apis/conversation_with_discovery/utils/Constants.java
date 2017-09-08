@@ -29,7 +29,7 @@ public class Constants {
   public static final String CONVERSATION_VERSION = ConversationService.VERSION_DATE_2016_09_20;
 
   /** The Constant DISCOVERY_FIELD_BODY. */
-  public static final String DISCOVERY_FIELD_BODY = "contentHtml";
+  public static final String DISCOVERY_FIELD_BODY = "html";
   
   /** The Constant DISCOVERY_FIELD_TEXT. */
   public static final String DISCOVERY_FIELD_TEXT = "text";
