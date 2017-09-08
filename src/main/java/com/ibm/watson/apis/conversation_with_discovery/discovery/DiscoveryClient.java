@@ -78,13 +78,13 @@ public class DiscoveryClient {
         DocumentPayload documentPayload = new DocumentPayload();
 //        String id = jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_ID).toString().replaceAll("\"", "");
 //        documentPayload.setId(id);
-
+		//metadata-title
 		if(jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_TITLE)!=null){
 			documentPayload.setTitle(
 				jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_TITLE).toString().replaceAll("\"", ""));
 		}else{
 			documentPayload.setTitle(
-			    jarray.get(i).getAsJsonObject().get("extracted_metadata").getAsJsonObject().get(Constants.DISCOVERY_FIELD_TITLE).toString().replaceAll("\"", ""));)
+			    jarray.get(i).getAsJsonObject().get("extracted_metadata").getAsJsonObject().get(Constants.DISCOVERY_FIELD_TITLE).toString().replaceAll("\"", ""));
 		}
         
         //    jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_TITLE).toString().replaceAll("\"", ""));
