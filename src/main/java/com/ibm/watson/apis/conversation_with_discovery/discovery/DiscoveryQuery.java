@@ -84,10 +84,10 @@ public class DiscoveryQuery {
 //    
 //    logger.info("Query: " + sb.toString());
 
-	sb.append("searchText:");
+	sb.append("html:");
 	sb.append(userQuery);
 	sb.append(",");
-	sb.append("enrichedText:");
+	sb.append("title:");
 	sb.append(userQuery);
 
     queryBuilder.query(sb.toString());
