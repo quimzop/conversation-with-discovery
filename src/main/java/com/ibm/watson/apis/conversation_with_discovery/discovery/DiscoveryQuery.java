@@ -68,21 +68,27 @@ public class DiscoveryQuery {
     
     StringBuilder sb = new StringBuilder();
     
-    if(queryFields == null || queryFields.length() == 0 || queryFields.equalsIgnoreCase("none")) {
-      sb.append(userQuery);
-    } else {
-      StringTokenizer st = new StringTokenizer(queryFields, ",");
-      while (st.hasMoreTokens()) {
-        sb.append(st.nextToken().trim());
-        sb.append(":");
-        sb.append(userQuery);
-        if (st.hasMoreTokens()) {
-          sb.append(",");
-        }
-      }
-    }
-    
-    logger.info("Query: " + sb.toString());
+//    if(queryFields == null || queryFields.length() == 0 || queryFields.equalsIgnoreCase("none")) {
+//      sb.append(userQuery);
+//    } else {
+//      StringTokenizer st = new StringTokenizer(queryFields, ",");
+//      while (st.hasMoreTokens()) {
+//        sb.append(st.nextToken().trim());
+//        sb.append(":");
+//        sb.append(userQuery);
+//        if (st.hasMoreTokens()) {
+//          sb.append(",");
+//        }
+//      }
+//    }
+//    
+//    logger.info("Query: " + sb.toString());
+
+	sb.append("searchText:");
+	sb.append(userQuery);
+	sb.append(",");
+	sb.append("enrichedText:");
+	sb.append(userQuery);
 
     queryBuilder.query(sb.toString());
     QueryResponse queryResponse = discovery.query(queryBuilder.build()).execute();
