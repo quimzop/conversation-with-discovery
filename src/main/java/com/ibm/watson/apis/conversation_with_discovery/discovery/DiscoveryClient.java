@@ -72,7 +72,8 @@ public class DiscoveryClient {
     List<DocumentPayload> payload = new ArrayList<DocumentPayload>();
     JsonArray jarray = resultsElement.getAsJsonArray();
 
-    if (jarray.size() > 0) {
+	
+    //if (jarray.size() > 0) {
       for (int i = 0; (i < jarray.size()) && (i < Constants.DISCOVERY_MAX_SEARCH_RESULTS_TO_SHOW); i++) {
         DocumentPayload documentPayload = new DocumentPayload();
         String id = jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_ID).toString().replaceAll("\"", "");
@@ -106,15 +107,15 @@ public class DiscoveryClient {
         }
         payload.add(i, documentPayload);
       }
-    } else {
-      DocumentPayload documentPayload = new DocumentPayload();
-      documentPayload.setTitle("No results found");
-      documentPayload.setBody("empty");
-      documentPayload.setSourceUrl("empty");
-      documentPayload.setBodySnippet("empty");
-      documentPayload.setConfidence("0.0");
-      payload.add(documentPayload);
-    }
+//    } else {
+//      DocumentPayload documentPayload = new DocumentPayload();
+//      documentPayload.setTitle("No results found");
+//      documentPayload.setBody("empty");
+//      documentPayload.setSourceUrl("empty");
+//      documentPayload.setBodySnippet("empty");
+//      documentPayload.setConfidence("0.0");
+//      payload.add(documentPayload);
+//    }
 
     return payload;
   }
