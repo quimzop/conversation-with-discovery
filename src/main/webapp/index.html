@@ -48,18 +48,6 @@
     }
   } );
   System.import ( 'js/boot' ).then ( null, console.error.bind ( console ) );
-
-function yesBye() {
-		var latestResponse = Api.getresponsePayload();
-		var context = latestResponse.context;
-		Api.sendRequest("yes", context);
-	}
-	function noBye() {
-		var latestResponse = Api.getResponsePayload();
-		var context = latestResponse.context;
-		Api.sendRequest("no", context);
-	}
-
 </script>
 </body>
 </html>
